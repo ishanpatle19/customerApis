@@ -24,6 +24,8 @@ from django.conf.urls import url, include
 from django.urls import path, include
  
 urlpatterns = [ 
-    path('login', include('customers.urls')),
+    path('login/', include('customers.urls')),
     path('', include('customers.urls')),
+    path('register/', include('customers.urls')),
+    path('forgot/', include('customers.urls')),
 ]
