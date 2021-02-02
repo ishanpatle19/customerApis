@@ -1,6 +1,5 @@
 from django.conf.urls import url
 from customers import views
-
 from django.urls import path, include
 
 urlpatterns = [
@@ -10,6 +9,6 @@ urlpatterns = [
     
     path('login', views.login),
     path('register', views.register),
-    path('forgot', views.forgot),
-    
+    path('forgot', views.forgot)  
 ]
+

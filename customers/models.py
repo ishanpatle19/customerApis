@@ -15,16 +15,16 @@ class Customer(models.Model):
 class Register(models.Model):
     firstName = models.CharField(blank=False, max_length=50, default='')
     lastName = models.CharField(blank=False, max_length=50, default='')
-    email = models.CharField(max_length=70, blank=False, default='')
+    email = models.CharField(
+        max_length=70, blank=False, default='', unique=True)
     password = models.IntegerField(blank=False, default=25)
-    phone = models.CharField(blank=False, max_length=50)
+    phone = models.CharField(blank=False, max_length=50, unique=True)
+
 
 class Login(models.Model):
     email = models.CharField(max_length=70, blank=False, default='')
     password = models.IntegerField(blank=False, default=25)
 
+
 class Forgot(models.Model):
     email = models.CharField(max_length=70, blank=False, default='')
-
-
-

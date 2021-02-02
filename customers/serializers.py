@@ -15,6 +15,15 @@ class CustomerSerializer(serializers.ModelSerializer):
         )
 
 
+class LoginSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Login
+        fields = (
+            'email',
+            'password',
+        )
+
 class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -27,18 +36,6 @@ class RegisterSerializer(serializers.ModelSerializer):
             'phone'
         )
 
-
-
-class LoginSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Login
-        fields = (
-            'email',
-            'password',
-        )
-
-
 class ForgotSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -46,6 +43,3 @@ class ForgotSerializer(serializers.ModelSerializer):
         fields = (
             'email',
         )
-
-
-
