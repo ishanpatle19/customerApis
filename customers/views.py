@@ -6,8 +6,10 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 import pymongo
 
-from customers.models import Customer, Register, Login, Forgot
-from customers.serializers import CustomerSerializer, RegisterSerializer, LoginSerializer, ForgotSerializer
+from customers.models import Customer
+# , Register, Login, Forgot
+from customers.serializers import CustomerSerializer
+# , RegisterSerializer, LoginSerializer, ForgotSerializer
 
 
 @csrf_exempt
@@ -58,12 +60,12 @@ def register(request):
     # return JsonResponse(customers_serializer.data, safe=False)
 
     register_data = JSONParser().parse(request)
-    register_serializer = RegisterSerializer(data=register_data)
+    register_serializer = CustomerSerializer(data=register_data)
 
     # find tutorial by pk (id)
     try:
-        tutorial = Register.objects.get(email=register_data['email'])
-    except Register.DoesNotExist:
+        tutorial = Customer.objects.get(email=register_data['email'])
+    except Customer.DoesNotExist:
         register_serializer.is_valid()
         register_serializer.save()
         return JsonResponse(register_serializer.data, status=status.HTTP_201_CREATED)
@@ -77,7 +79,7 @@ def register(request):
 @csrf_exempt
 def login(request):
     login_data = JSONParser().parse(request)
-    login_serializer = LoginSerializer(data=login_data)
+    login_serializer = CustomerSerializer(data=login_data)
     if login_serializer.is_valid():
         login_serializer.save()
         return JsonResponse(login_serializer.data, status=status.HTTP_201_CREATED)
@@ -88,7 +90,7 @@ def login(request):
 def forgot(request):
 
     forgot_data = JSONParser().parse(request)
-    forgot_serializer = ForgotSerializer(data=forgot_data)
+    forgot_serializer = CustomerSerializer(data=forgot_data)
     if forgot_serializer.is_valid():
         forgot_serializer.save()
         return JsonResponse(forgot_serializer.data, status=status.HTTP_201_CREATED)

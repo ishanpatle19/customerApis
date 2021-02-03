@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from customers.models import Customer, Register, Login, Forgot
+from customers.models import Customer
+# , Register, Login, Forgot
 
 
 class CustomerSerializer(serializers.ModelSerializer):
@@ -15,31 +16,31 @@ class CustomerSerializer(serializers.ModelSerializer):
         )
 
 
-class LoginSerializer(serializers.ModelSerializer):
+# class LoginSerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = Login
-        fields = (
-            'email',
-            'password',
-        )
+#     class Meta:
+#         model = Login
+#         fields = (
+#             'email',
+#             'password',
+#         )
 
-class RegisterSerializer(serializers.ModelSerializer):
+# class RegisterSerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = Register
-        fields = (
-            'firstName',
-            'lastName',
-            'email',
-            'password',
-            'phone'
-        )
+#     class Meta:
+#         model = Register
+#         fields = (
+#             'firstName',
+#             'lastName',
+#             'email',
+#             'password',
+#             'phone'
+#         )
 
-class ForgotSerializer(serializers.ModelSerializer):
+# class ForgotSerializer(serializers.ModelSerializer):
 
-    class Meta:
-        model = Forgot
-        fields = (
-            'email',
-        )
+#     class Meta:
+#         model = Forgot
+#         fields = (
+#             'email',
+#         )
