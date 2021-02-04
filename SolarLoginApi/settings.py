@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'gkzRestApi.urls'
+ROOT_URLCONF = 'SolarLoginApi.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'gkzRestApi.wsgi.application'
+WSGI_APPLICATION = 'SolarLoginApi.wsgi.application'
 
 
 # Database
